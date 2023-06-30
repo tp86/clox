@@ -8,9 +8,10 @@ all: run
 $(exe): $(objs)
 	gcc $(objs) -o $@
 
-chunk.c: memory.h common.h
+chunk.c: memory.h value.h common.h
 debug.c: chunk.h common.h
 memory.c: common.h
+value.c: memory.h common.h
 main.c: chunk.h debug.h common.h
 %.c: %.h
 	@touch $@
