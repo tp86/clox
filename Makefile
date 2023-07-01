@@ -1,4 +1,4 @@
-sources = chunk.c debug.c main.c memory.c
+sources = chunk.c debug.c main.c memory.c value.c
 objs = $(sources:%.c=%.o)
 exe = clox
 
@@ -9,7 +9,7 @@ $(exe): $(objs)
 	gcc $(objs) -o $@
 
 chunk.c: memory.h value.h common.h
-debug.c: chunk.h common.h
+debug.c: chunk.h common.h value.h
 memory.c: common.h
 value.c: memory.h common.h
 main.c: chunk.h debug.h common.h
